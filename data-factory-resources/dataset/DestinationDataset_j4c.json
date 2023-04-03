@@ -5,6 +5,9 @@
 			"referenceName": "adfbyexsa",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Chapter2"
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
