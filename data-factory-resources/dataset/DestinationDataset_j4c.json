@@ -1,0 +1,17 @@
+{
+	"name": "DestinationDataset_j4c",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfbyexsa",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "sampledata"
+			}
+		}
+	}
+}
