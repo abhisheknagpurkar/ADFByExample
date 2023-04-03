@@ -1,0 +1,9 @@
+{
+	"name": "myfirstadf007-df",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6b36fc84-da48-4df5-8f3f-a2851560bf58",
+		"tenantId": "dab1ce54-51b9-4802-9148-4e796971ba2f"
+	}
+}
