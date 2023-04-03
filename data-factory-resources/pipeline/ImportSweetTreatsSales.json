@@ -1,0 +1,10 @@
+{
+	"name": "ImportSweetTreatsSales",
+	"properties": {
+		"description": "Import Sales data to DB",
+		"folder": {
+			"name": "Chapter3"
+		},
+		"annotations": []
+	}
+}
