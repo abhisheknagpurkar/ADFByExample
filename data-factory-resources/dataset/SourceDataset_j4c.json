@@ -1,0 +1,21 @@
+{
+	"name": "SourceDataset_j4c",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfbyexsa",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "azure-data-factory-by-example-main.zip",
+				"container": "landing"
+			},
+			"compression": {
+				"type": "ZipDeflate"
+			}
+		}
+	}
+}
