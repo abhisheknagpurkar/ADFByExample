@@ -77,6 +77,7 @@
 						"referenceName": "ABS_CSV",
 						"type": "DatasetReference",
 						"parameters": {
+							"Container": "sampledata",
 							"Directory": ".",
 							"File": ".",
 							"LinkedServiceConnectionSecret": "StorageAccountConnectionString"
