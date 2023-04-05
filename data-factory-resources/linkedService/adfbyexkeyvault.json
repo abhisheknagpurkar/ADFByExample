@@ -1,0 +1,11 @@
+{
+	"name": "adfbyexkeyvault",
+	"properties": {
+		"description": "connect to key vault 'adfbyex-kv'",
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://adfbyex-kv.vault.azure.net/"
+		}
+	}
+}
