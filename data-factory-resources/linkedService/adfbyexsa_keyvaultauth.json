@@ -1,0 +1,18 @@
+{
+	"name": "adfbyexsa_keyvaultauth",
+	"properties": {
+		"description": "Connection authorized using key vault secret",
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "adfbyexkeyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "StorageAccountConnectionString"
+			}
+		}
+	}
+}
