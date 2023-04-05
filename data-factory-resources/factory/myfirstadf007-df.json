@@ -1,5 +1,13 @@
 {
 	"name": "myfirstadf007-df",
+	"properties": {
+		"globalParameters": {
+			"EnvironmentName": {
+				"type": "string",
+				"value": "Development"
+			}
+		}
+	},
 	"location": "southindia",
 	"identity": {
 		"type": "SystemAssigned",
