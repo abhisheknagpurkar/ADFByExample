@@ -1,9 +1,9 @@
 {
-	"name": "ImportSugarCubeSales",
+	"name": "ImportSugarCubeSales_copy1",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Import Sales",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -100,8 +100,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ABS_JSON_SugarCube",
-						"type": "DatasetReference"
+						"referenceName": "ABS_JSON_adbyexsa_keyvaultauth",
+						"type": "DatasetReference",
+						"parameters": {
+							"Container": "sampledata",
+							"Directory": ".",
+							"File": "."
+						}
 					}
 				],
 				"outputs": [
@@ -113,7 +118,7 @@
 			}
 		],
 		"folder": {
-			"name": "Chapter3"
+			"name": "Chapter5"
 		},
 		"annotations": []
 	}

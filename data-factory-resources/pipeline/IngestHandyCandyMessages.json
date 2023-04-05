@@ -1,6 +1,7 @@
 {
-	"name": "ImportSugarCubeSales",
+	"name": "IngestHandyCandyMessages",
 	"properties": {
+		"description": "Copy JSON to Parquet",
 		"activities": [
 			{
 				"name": "Copy data1",
@@ -20,7 +21,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "azure-data-factory-by-example-main/SampleData/SugarCube",
+							"wildcardFolderPath": "azure-data-factory-by-example-main/SampleData/HandyCandy",
 							"wildcardFileName": "*.json",
 							"enablePartitionDiscovery": false
 						},
@@ -29,11 +30,14 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE dbo.Sales_LOAD",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
-						"disableMetricsCollection": false
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings",
+							"copyBehavior": "MergeFiles"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -41,25 +45,34 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['Month']"
+									"path": "$['TransactionId']"
 								},
 								"sink": {
-									"name": "SalesMonth",
+									"name": "TransactionId",
+									"type": "Guid"
+								}
+							},
+							{
+								"source": {
+									"path": "$['TransactionDate']"
+								},
+								"sink": {
+									"name": "TransactionDate",
 									"type": "DateTime"
 								}
 							},
 							{
 								"source": {
-									"path": "$['Company']"
+									"path": "$['StoreId']"
 								},
 								"sink": {
-									"name": "Retailer",
-									"type": "String"
+									"name": "StoreId",
+									"type": "Int16"
 								}
 							},
 							{
 								"source": {
-									"path": "$['Sales'][0]['Product']"
+									"path": "['Product']"
 								},
 								"sink": {
 									"name": "Product",
@@ -68,45 +81,26 @@
 							},
 							{
 								"source": {
-									"path": "$['Sales'][0]['ManufacturerProductCode']"
+									"path": "['Price']"
 								},
 								"sink": {
-									"name": "ManufacturerProductCode",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Sales'][0]['Units']"
-								},
-								"sink": {
-									"name": "UnitsSold",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"path": "$['Sales'][0]['Value']"
-								},
-								"sink": {
-									"name": "SalesValueUSD",
-									"type": "Decimal"
+									"name": "Price",
+									"type": "Single"
 								}
 							}
 						],
-						"collectionReference": "$['Sales']",
-						"mapComplexValuesToString": false
+						"collectionReference": "$['Items']"
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "ABS_JSON_SugarCube",
+						"referenceName": "ABS_JSON_HandyCandy",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ASQL_dboSalesLoad",
+						"referenceName": "ABS_PAR_HandyCandy",
 						"type": "DatasetReference"
 					}
 				]
