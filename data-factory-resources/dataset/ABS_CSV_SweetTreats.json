@@ -2,8 +2,11 @@
 	"name": "ABS_CSV_SweetTreats",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "adfbyexsa",
-			"type": "LinkedServiceReference"
+			"referenceName": "AnyBlobStorage",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"ConnectionSecret": "StorageAccountConnectionString"
+			}
 		},
 		"folder": {
 			"name": "Chapter3"
