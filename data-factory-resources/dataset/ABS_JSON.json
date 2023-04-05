@@ -24,7 +24,8 @@
 				"defaultValue": "."
 			},
 			"LinkedServiceConnectionSecret": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "StorageAccountConnectionString"
 			}
 		},
 		"folder": {
