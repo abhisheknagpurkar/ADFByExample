@@ -1,0 +1,64 @@
+{
+	"name": "TestDependencyConnection",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable 1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "myvariable",
+					"value": {
+						"value": "@string(int('not an int'))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable 1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "myvariable",
+					"value": "\"Valid Value 1\""
+				}
+			},
+			{
+				"name": "Set variable3",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable2",
+						"dependencyConditions": [
+							"Skipped",
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "myvariable",
+					"value": "\"Valid value 2\""
+				}
+			}
+		],
+		"variables": {
+			"myvariable": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Chapter6"
+		},
+		"annotations": []
+	}
+}
